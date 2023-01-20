@@ -5,7 +5,7 @@ public class MergeSorter implements IntSorter{
     @Override
     public void sort(int[] a) {
         int length = a.length;
-        int M = 100;
+        int M = 15;
 
         if (length < 2){
             return;

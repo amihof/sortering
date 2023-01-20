@@ -24,7 +24,7 @@ public class QuickSorter implements IntSorter{
 
     public void recursive(int[] a, int begin, int end){
         int size = (end+1) - begin;
-        int M = 50;
+        int M = 15;
 
         if (begin < end){
             if (size < M){
