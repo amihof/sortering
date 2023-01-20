@@ -5,13 +5,13 @@ public class MergeSorter implements IntSorter{
     @Override
     public void sort(int[] a) {
         int length = a.length;
-        int K = 100;
+        int M = 100;
 
         if (length < 2){
             return;
         }
 
-        if (length > K || length < 15){
+        if (length > M){
             int mid = length /2;
             int [] left = new int[mid];
             int [] right = new int[length-mid];
