@@ -40,7 +40,7 @@ public class TestSort {
     public static void main(String[] args) {
         IntSorter sorter = new QuickSorter();
 
-        int firstN = 10;
+        int firstN = 10000;
 
         System.out.println("Unordered:");
         testSort(sorter, firstN, false);
