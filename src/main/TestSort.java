@@ -38,7 +38,7 @@ public class TestSort {
     }
 
     public static void main(String[] args) {
-        IntSorter sorter = new MergeSorter();
+        IntSorter sorter = new QuickSorter();
 
         int firstN = 10000;
 
