@@ -1,5 +1,6 @@
 package main;
 
+
 public class TestSort {
     private static int[] create(int N, boolean ordered) {
         return ordered ?
@@ -37,11 +38,9 @@ public class TestSort {
     }
 
     public static void main(String[] args) {
-        IntSorter sorter1 = new InsertionSorter();
+        IntSorter sorter = new QuickSorter();
 
-        QuickSorter sorter = new QuickSorter();
-
-        int firstN = 10000;
+        int firstN = 10;
 
         System.out.println("Unordered:");
         testSort(sorter, firstN, false);
