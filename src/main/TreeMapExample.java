@@ -19,7 +19,6 @@ public class TreeMapExample implements IntSorter{
                 treeMap.put(array[i], 1);
             }
         }
-        System.out.println(treeMap);
 
         for(int i = 0; i < array.length; i++) {
             int key = treeMap.firstKey();
