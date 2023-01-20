@@ -1,5 +1,8 @@
 package main;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class MergeSorter implements IntSorter{
 
     @Override
@@ -51,5 +54,19 @@ public class MergeSorter implements IntSorter{
             a[i++] = right[r++];
         }
 
+    }
+
+    public static void main(String[] args) {
+        IntSorter sorter = new MergeSorter();
+
+        Random rand = new Random();
+        int[] array = new int[10];
+
+        for(int i = 0; i< array.length;i++){
+            array[i] = rand.nextInt(50);
+        }
+        System.out.println("UnSorted Array: " + Arrays.toString(array));
+        sorter.sort(array);
+        System.out.println("Sorted array: " + Arrays.toString(array));
     }
 }

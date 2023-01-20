@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class QuickSorter implements IntSorter{
@@ -63,6 +64,20 @@ public class QuickSorter implements IntSorter{
         a[end] = swapTemp;
 
         return left;
+    }
+
+    public static void main(String[] args) {
+        IntSorter sorter = new QuickSorter();
+
+        Random rand = new Random();
+        int[] array = new int[10];
+
+        for(int i = 0; i< array.length;i++){
+            array[i] = rand.nextInt(50);
+        }
+        System.out.println("UnSorted Array: " + Arrays.toString(array));
+        sorter.sort(array);
+        System.out.println("Sorted array: " + Arrays.toString(array));
     }
 
 }
