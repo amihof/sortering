@@ -5,29 +5,35 @@ public class MergeSorter implements IntSorter{
     @Override
     public void sort(int[] a) {
         int length = a.length;
+        int r = 0;
+        int K = 75;
 
         if (length < 2){
             return;
         }
 
-        int mid = length /2;
-        int [] left = new int[mid];
-        int [] right = new int[length-mid];
+        if (length - r > K){
+            int mid = length /2;
+            int [] left = new int[mid];
+            int [] right = new int[length-mid];
 
-        int k = 0;
-        for(int i = 0;i<length;++i){
-            if(i<mid){
-                left[i] = a[i];
+            int k = 0;
+            for(int i = 0;i<length;++i){
+                if(i<mid){
+                    left[i] = a[i];
+                }
+                else{
+                    right[k] = a[i];
+                    k = k+1;
+                }
             }
-            else{
-                right[k] = a[i];
-                k = k+1;
-            }
+            sort(left);
+            sort(right);
+
+            merge(left,right,a,mid,length-mid);
+        }else{
+            insertionSort(a);
         }
-        sort(left);
-        sort(right);
-
-        merge(left,right,a,mid,length-mid);
 
     }
 
@@ -51,5 +57,14 @@ public class MergeSorter implements IntSorter{
             a[i++] = right[r++];
         }
 
+    }
+
+    public void insertionSort(int[] a){
+        int N = a.length;
+        for (int i = 0; i < N; i++) {
+            for (int j = i; j > 0 && a[j] < a[j-1]; j--) {
+                int x = a[j]; a[j] = a[j-1]; a[j-1] = x;
+            }
+        }
     }
 }
