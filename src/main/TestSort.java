@@ -39,7 +39,7 @@ public class TestSort {
     public static void main(String[] args) {
         IntSorter sorter1 = new InsertionSorter();
 
-        QuickSorter sorter = new QuickSorter();
+        TreeMapExample sorter = new TreeMapExample();
 
         int firstN = 10000;
 
