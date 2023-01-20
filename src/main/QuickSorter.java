@@ -23,9 +23,10 @@ public class QuickSorter implements IntSorter{
     }
 
     public void recursive(int[] a, int begin, int end){
-        int size = (end+1) - begin;
+        int M = (end+1) - begin;
+
         if (begin < end){
-            if (size < 11){
+            if (M < 100){
                 insertionSort(a, begin, end);
             }else {
                 int pivotIndex = new Random().nextInt(end-begin) + begin;
