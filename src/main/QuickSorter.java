@@ -23,23 +23,26 @@ public class QuickSorter implements IntSorter{
     }
 
     public void recursive(int[] a, int begin, int end){
-        if (begin >= end) {
-            return;
+        int size = (end+1) - begin;
+        if (begin < end){
+            if (size < 11){
+                insertionSort(a, begin, end);
+            }else {
+                int pivotIndex = new Random().nextInt(end-begin) + begin;
+
+                int pivot = a[pivotIndex];
+
+                int swapTemp = a[pivotIndex];
+                a[pivotIndex] = a[end];
+                a[end] = swapTemp;
+
+
+                int pointer = partition(a, begin, end, pivot);
+
+                recursive(a, begin, pointer-1);
+                recursive(a, pointer+1, end);
+            }
         }
-
-        int pivotIndex = new Random().nextInt(end-begin) + begin;
-
-        int pivot = a[pivotIndex];
-
-        int swapTemp = a[pivotIndex];
-        a[pivotIndex] = a[end];
-        a[end] = swapTemp;
-
-
-        int pointer = partition(a, begin, end, pivot);
-
-        recursive(a, begin, pointer-1);
-        recursive(a, pointer+1, end);
     }
 
     private int partition(int[] a, int begin, int end, int pivot) {
@@ -63,6 +66,18 @@ public class QuickSorter implements IntSorter{
         a[end] = swapTemp;
 
         return left;
+    }
+
+    public static void insertionSort(int[] list, int first, int last) {
+        for (int i = first+1; i <= last; i++) { // Change i <= last
+            int currentElement = list[i];
+            int j = i-1;
+            while (j>=0 && list[j]>currentElement) {
+                list[j+1] = list[j];
+                j--;
+            }
+            list[j+1] = currentElement;
+        }
     }
 
 }
